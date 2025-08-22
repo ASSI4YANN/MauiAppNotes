@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- APPLICATION BLOC NOTES ANDROID 12 SNOW CONE : PARTIE INTERFACE -->
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiAppNotesFormation"
+             x:Class="MauiAppNotesFormation.NotesPage"
+             Title="Mes Notes ☻">
+
+    <VerticalStackLayout Spacing="5" Margin="5">
+
+        <Entry x:Name="FileNameEntry" 
+           Placeholder="Nom du fichier (ex: monfichier.txt)" />
+
+        <Button Text="Créer/Ouvrir"
+            Clicked="OnCreateOrOpenFileClicked"/>
+
+        <SearchBar x:Name="SearchBarNotes"
+               Placeholder="Rechercher une note..."
+               TextChanged="OnSearchTextChanged"/>
+
+        <!-- Liste des fichiers enregistrés -->
+        <ListView x:Name="NotesListView"
+              ItemTapped="OnNoteTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+
+
+</ContentPage>
+
